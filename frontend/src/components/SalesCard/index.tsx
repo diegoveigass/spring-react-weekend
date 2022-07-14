@@ -1,4 +1,7 @@
 import { NotificationButton } from '../NotificationButton'
+import DatePicker from 'react-datepicker'
+
+import 'react-datepicker/dist/react-datepicker.css'
 
 export function SalesCard() {
   return (
@@ -6,8 +9,26 @@ export function SalesCard() {
       <div className="sales-card">
         <h1>Vendas</h1>
         <div className="date-picker-inputs">
-          <input type="date" className="input-date" />
-          <input type="date" className="input-date" />
+          <div>
+            <DatePicker
+              selected={new Date()}
+              onChange={(date: Date) => {
+                console.log(date)
+              }}
+              className="input-date"
+              dateFormat="dd/MM/yyyy"
+            />
+          </div>
+          <div>
+            <DatePicker
+              selected={new Date()}
+              onChange={(date: Date) => {
+                console.log(date)
+              }}
+              className="input-date"
+              dateFormat="dd/MM/yyyy"
+            />
+          </div>
         </div>
       </div>
       <main className="table-container">
