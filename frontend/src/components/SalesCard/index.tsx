@@ -2,8 +2,14 @@ import { NotificationButton } from '../NotificationButton'
 import DatePicker from 'react-datepicker'
 
 import 'react-datepicker/dist/react-datepicker.css'
+import { useState } from 'react'
 
 export function SalesCard() {
+  const [initialDate, setInitialDate] = useState(
+    new Date(new Date().setDate(new Date().getDate() - 365)),
+  )
+  const [finalDate, setFinalDate] = useState(new Date())
+
   return (
     <>
       <div className="sales-card">
@@ -11,9 +17,9 @@ export function SalesCard() {
         <div className="date-picker-inputs">
           <div>
             <DatePicker
-              selected={new Date()}
+              selected={initialDate}
               onChange={(date: Date) => {
-                console.log(date)
+                setInitialDate(date)
               }}
               className="input-date"
               dateFormat="dd/MM/yyyy"
@@ -21,9 +27,9 @@ export function SalesCard() {
           </div>
           <div>
             <DatePicker
-              selected={new Date()}
+              selected={finalDate}
               onChange={(date: Date) => {
-                console.log(date)
+                setFinalDate(date)
               }}
               className="input-date"
               dateFormat="dd/MM/yyyy"
